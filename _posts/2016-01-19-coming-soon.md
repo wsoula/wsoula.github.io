@@ -4,4 +4,4 @@ title: "Coming Soon"
 date: 2016-01-19
 ---
 
-The stylishcarpet music blog will be moving here shortly
+The wsoula profession site will be up shortly
