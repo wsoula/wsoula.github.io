@@ -15,7 +15,7 @@ https://github.com/aws/aws-cdk/issues/2089#issuecomment-531350352 and https://fo
 
 ```
 criticalSnsTopic = sns.Topic.from_topic_arn(self,'criticalTopic',snsCriticalArn)
-criticalSnsAction=cloudwatch_actions.SnsAction(snsCriticalTopic)
+criticalSnsAction=cloudwatch_actions.SnsAction(criticalSnsTopic)
 alarm.add_alarm_action(criticalSnsAction)
 ```
 
