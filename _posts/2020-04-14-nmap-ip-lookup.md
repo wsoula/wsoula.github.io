@@ -6,7 +6,7 @@ and even `dig <ip>` will get some information, but another really helpful
 command is `nmap <ip> --script whois-ip` which will also tell you what
 ports are open.  This helped me once when it would return open ports when
 I was on the VPN but not when I was off the VPN.  I then knew the machine
-was one of ours and not a random one so I was able to track it done.  NMap
+was one of ours and not a random one so I was able to track it down.  NMap
 output looks like below:
 ```
 nmap ip.ip.ip.ip --script whois-ip
