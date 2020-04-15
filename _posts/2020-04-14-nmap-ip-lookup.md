@@ -32,6 +32,6 @@ to geolookup the IP or if you want to do it on command line you have to sign
 up for a free account with maxmind so you can use `geoipupdate` and
 `geoiplookup <ip>`.  I could not get this to work and it looks like it only
 returns the country while this website requires no setup and returns the state
-which made the region obvious when the stat was Virginia.
+which made the region obvious when the state was Virginia.
 
 https://www.ultratools.com/tools/geoIpResult
