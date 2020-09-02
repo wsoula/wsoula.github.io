@@ -31,3 +31,5 @@ again.
 ```
 cdk bootstrap --profile saml --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess --trust <pipeline_account_id> aws://<resource_account_id>/us-east-1
 ```
+
+<iframe src="https://api.countapi.xyz/hit/wsoula/blog_20200901" width="150" height="50"/>
