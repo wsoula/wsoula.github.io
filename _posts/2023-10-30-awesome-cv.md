@@ -12,3 +12,7 @@ use this new docker image, which required forking that repo and publishing my ow
 github action.  Then I was able to update my Awesome-CV repo to use my new action and I finally
 got a new resume uploaded as an artifact.  So feel free to use my new docker image and github action
 and open issues on it if it gets out of date again.
+
+In looking for where I originally found the Awesome-CV repo, I came across this reddit post that
+listed several other LaTex resume templates so I thought it could be useful for others:
+https://www.reddit.com/r/cscareerquestionsCAD/comments/uufe0n/using_latex_resume_template_helped_me_a_lot/
