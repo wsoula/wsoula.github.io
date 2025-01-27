@@ -17,3 +17,5 @@ and run the script and get the CSV I needed.  Because I run the aws cli as a doc
 and I haven't found a way to run that with the session manager plugin I had to use a local
 install of the aws cli and session manager plugin.  The command I ran was:
 `/usr/local/aws-cli/aws ssm start-session --target <bastion instance id> --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters '{"portNumber":["3306"], "localPortNumber":["3306"]}' --profile <profile> --region <region> --parameters host="<RDS Host>",portNumber="3306",localPortNumber="3306"`
+
+Source: https://aws.amazon.com/blogs/database/securely-connect-to-an-amazon-rds-or-amazon-ec2-database-instance-remotely-with-your-preferred-gui/
