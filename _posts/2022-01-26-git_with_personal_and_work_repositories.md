@@ -21,36 +21,46 @@ Here's how easy you can separate your Git for work and Git for personal
 First, you must make new SSH Keys with your work email and add it to your work account in your company repo. Make sure you name your ssh key files to be something like id_ed25519_work to differentiate your SSH key for personal and work. Here's how to generate SSH keys.
 
 If you open your git config in ~/.gitconfig, you'll probably have something like this.
+```
 [user]
     name = yourusername
     email = youremail@mail.com
+```
 In Windows you can find your git config file in C:\Users\[YOURUSERNAME]\.gitconfig.
 
 That is for your personal git account. For your working git account, you can make another git config file, for example .gitconfig-work, and you can fill your file with this
+```
 [user]
     name = yourusername
     email = yourworkemail@company.com
+```
 In your original git config file, add this line
+```
 [user]
     name = yourusername
     email = youremail@mail.com
 
 [includeIf "gitdir/i:[location to your company's project folder]/"]
     path = ~/.gitconfig-work
+```
 for example, it would be like this.
+```
 [user]
     name = yourusername
     email = youremail@mail.com
 
 [includeIf "gitdir/i:~/working/projectA/"]
     path = ~/.gitconfig-work
+```
 and update your gitconfig-work to be like this
+```
 [user]
     name = yourusername
     email = yourworkemail@company.com
 
 [core]
     sshCommand = "ssh -i ~/.ssh/id_ed25519_work"
+```
 That's it! So, whenever you're in your company's project folder, your Git will automatically use your work email and username with your seperate ssh keys.
 
 You can test your ssh file by typing this in your terminal.
