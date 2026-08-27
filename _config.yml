@@ -1,3 +1,6 @@
 name: wsoula Professional Site
 markdown: kramdown
 theme: minima
+header_pages: []
+sass:
+  style: compressed

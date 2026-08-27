@@ -4,55 +4,93 @@ title: Will Soula
 ---
 
 <style>
-  .modern-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1.5rem 0;
+  /* Global Dark Scheme Variables for the Feed Page */
+  body, .site-main, .main-content {
+    background-color: #0d1117 !important;
+    color: #c9d1d9 !important;
   }
-  .blog-card {
-    background: #ffffff;
-    border: 1px solid #e1e4e8;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
+
+  h2 {
+    color: #f0f6fc;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 0.5rem;
+  }
+
+  .modern-wide-list {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
   }
+
+  .blog-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s, border-color 0.2s;
+
+    /* Forces one per row, stretching wide */
+    width: 100%;
+    box-sizing: border-box;
+
+    /* Forces uniform identical height */
+    height: 160px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .blog-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transform: translateX(4px);
+    border-color: #58a6ff;
   }
-  .post-meta {
-    font-size: 0.85rem;
-    color: #586069;
-    margin-bottom: 0.5rem;
-  }
-  .post-link {
-    font-size: 1.3rem;
+
+  .post-title-link {
+    font-size: 1.4rem;
     font-weight: 600;
-    color: #0366d6;
+    color: #58a6ff;
     text-decoration: none;
+    margin: 0;
   }
+
+  .post-title-link:hover {
+    text-decoration: underline;
+  }
+
   .post-excerpt {
     font-size: 0.95rem;
-    color: #24292e;
-    margin-top: 0.75rem;
-    line-height: 1.5;
+    color: #8b949e;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Cuts text beautifully at 2 lines to maintain uniform height */
+    -webkit-box-orient: vertical;
+  }
+
+  .post-meta {
+    font-size: 0.8rem;
+    color: #484f58;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 </style>
 
-<h2>Latest Stories</h2>
+<h2>Latest Matrix</h2>
 
-<div class="modern-grid">
+<div class="modern-wide-list">
   {% for post in site.posts %}
     <article class="blog-card">
-      <div class="post-meta">{{ post.date | date: "%b %d, %Y" }}</div>
-      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-      <div class="post-excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 25 }}
+      <div>
+        <a class="post-title-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        <div class="post-excerpt">
+          {{ post.excerpt | strip_html | strip_newlines | truncatewords: 30 }}
+        </div>
       </div>
+      <div class="post-meta">{{ post.date | date: "%B %d, %Y" }}</div>
     </article>
   {% endfor %}
 </div>
