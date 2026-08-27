@@ -1,15 +1,59 @@
 ---
 layout: default
-title: Coming Soon Professional Site
+title: Will Soula
 ---
-<body>
-Coming Soon, home of wsoula profession site
-<h1>{{ page.title }}</h1>
-<a href="https://github.com/wsoula/Awesome-CV/releases/download/latest/wsoula.pdf">Resume</a>
-<ul class="posts">
+
+<style>
+  .modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1.5rem 0;
+  }
+  .blog-card {
+    background: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  }
+  .post-meta {
+    font-size: 0.85rem;
+    color: #586069;
+    margin-bottom: 0.5rem;
+  }
+  .post-link {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0366d6;
+    text-decoration: none;
+  }
+  .post-excerpt {
+    font-size: 0.95rem;
+    color: #24292e;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+</style>
+
+<h2>Latest Stories</h2>
+
+<div class="modern-grid">
   {% for post in site.posts %}
-  <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+    <article class="blog-card">
+      <div class="post-meta">{{ post.date | date: "%b %d, %Y" }}</div>
+      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      <div class="post-excerpt">
+        {{ post.excerpt | strip_html | truncatewords: 25 }}
+      </div>
+    </article>
   {% endfor %}
-</ul>
-<iframe src="https://api.countapi.xyz/hit/wsoula/blog_homepage" width="150" height="50"/>
-</body>
+</div>
+
